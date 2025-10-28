@@ -13,7 +13,8 @@
             --light-green: #1abc9c;
             --dark-green: #16a085;
             --white: #ecf0f1;
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --glow: 0 0 15px rgba(26, 188, 156, 0.6);
         }
 
         * {
@@ -27,6 +28,31 @@
             background-color: var(--dark-gray);
             color: var(--white);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 커스텀 커서 */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(26, 188, 156, 0.5);
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.2s ease;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid rgba(26, 188, 156, 0.3);
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.4s ease;
         }
 
         /* 인트로 페이지 스타일 */
@@ -60,49 +86,93 @@
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--light-green);
+            text-shadow: 0 0 10px rgba(26, 188, 156, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--light-green);
+            animation: expandLine 2s ease forwards 1s;
         }
 
         .intro-subtitle {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             color: var(--white);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s;
         }
 
         .enter-btn {
-            background-color: var(--light-green);
-            color: var(--dark-gray);
-            border: none;
+            background-color: transparent;
+            color: var(--light-green);
+            border: 2px solid var(--light-green);
             padding: 12px 30px;
             font-size: 1.1rem;
             border-radius: 30px;
             cursor: pointer;
             transition: var(--transition);
             font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1s;
+        }
+
+        .enter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 188, 156, 0.4), transparent);
+            transition: left 0.7s ease;
         }
 
         .enter-btn:hover {
-            background-color: var(--dark-green);
+            background-color: var(--light-green);
+            color: var(--dark-gray);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--glow);
+        }
+
+        .enter-btn:hover::before {
+            left: 100%;
         }
 
         /* 헤더 스타일 */
         header {
-            background-color: var(--medium-gray);
+            background-color: rgba(52, 73, 94, 0.9);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(10px);
         }
 
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--light-green);
+            text-shadow: 0 0 10px rgba(26, 188, 156, 0.3);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(26, 188, 156, 0.6);
         }
 
         nav ul {
@@ -112,6 +182,7 @@
 
         nav ul li {
             margin-left: 1.5rem;
+            position: relative;
         }
 
         nav ul li a {
@@ -121,11 +192,27 @@
             transition: var(--transition);
             padding: 5px 10px;
             border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-green);
+            transition: width 0.3s ease;
         }
 
         nav ul li a:hover {
             color: var(--light-green);
-            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a:hover::before {
+            width: 100%;
         }
 
         .language-switch {
@@ -136,11 +223,29 @@
             border-radius: 4px;
             cursor: pointer;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-switch::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 188, 156, 0.3), transparent);
+            transition: left 0.5s ease;
         }
 
         .language-switch:hover {
             background-color: var(--light-green);
             color: var(--dark-gray);
+            box-shadow: var(--glow);
+        }
+
+        .language-switch:hover::before {
+            left: 100%;
         }
 
         /* 메인 콘텐츠 스타일 */
@@ -154,15 +259,30 @@
             text-align: center;
             margin-bottom: 3rem;
             padding: 2rem;
-            background-color: var(--medium-gray);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--medium-gray) 0%, rgba(52, 73, 94, 0.8) 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(26, 188, 156, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
         }
 
         .welcome-section h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--light-green);
+            text-shadow: 0 0 10px rgba(26, 188, 156, 0.3);
         }
 
         .programs-grid {
@@ -172,21 +292,39 @@
         }
 
         .program-card {
-            background-color: var(--medium-gray);
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--medium-gray) 0%, rgba(52, 73, 94, 0.9) 100%);
+            border-radius: 15px;
             overflow: hidden;
             transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 188, 156, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
         .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), var(--glow);
+        }
+
+        .program-card:hover::before {
+            opacity: 1;
         }
 
         .program-image {
             height: 180px;
-            background-color: var(--light-green);
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--dark-green) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -197,24 +335,46 @@
             overflow: hidden;
         }
 
-        .program-image img {
+        .program-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .program-card:hover .program-image::after {
+            transform: translateX(100%);
         }
 
         .program-content {
             padding: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .program-content h3 {
             margin-bottom: 0.5rem;
             color: var(--light-green);
+            transition: var(--transition);
+        }
+
+        .program-card:hover .program-content h3 {
+            transform: translateX(10px);
         }
 
         .program-content p {
             margin-bottom: 1rem;
             color: var(--white);
+            transition: var(--transition);
+        }
+
+        .program-card:hover .program-content p {
+            transform: translateX(5px);
         }
 
         .program-links {
@@ -227,23 +387,42 @@
             display: inline-block;
             background-color: var(--light-green);
             color: var(--dark-gray);
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 10px 15px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
             flex: 1;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
         }
 
         .program-link:hover {
             background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .program-link:hover::before {
+            left: 100%;
         }
 
         .download-btn {
-            background-color: var(--dark-gray);
+            background-color: transparent;
             color: var(--white);
-            border: 1px solid var(--light-green);
+            border: 2px solid var(--light-green);
         }
 
         .download-btn:hover {
@@ -253,10 +432,22 @@
 
         /* 푸터 스타일 */
         footer {
-            background-color: var(--medium-gray);
+            background: linear-gradient(135deg, var(--medium-gray) 0%, rgba(52, 73, 94, 0.9) 100%);
             padding: 2rem;
             text-align: center;
             margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--light-green), transparent);
         }
 
         .developer-info {
@@ -282,10 +473,29 @@
             color: var(--white);
             text-decoration: none;
             transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-green);
+            transition: width 0.3s ease;
         }
 
         .contact-info a:hover {
             color: var(--light-green);
+        }
+
+        .contact-info a:hover::before {
+            width: 100%;
         }
 
         .copyright {
@@ -300,15 +510,16 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: var(--medium-gray);
-            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--medium-gray) 0%, rgba(52, 73, 94, 0.95) 100%);
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
             z-index: 999;
             transform: translateY(100%);
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
         }
 
         .cookie-banner.show {
@@ -326,12 +537,25 @@
         }
 
         .cookie-btn {
-            padding: 8px 15px;
+            padding: 10px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cookie-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
         }
 
         .accept-btn {
@@ -341,16 +565,27 @@
 
         .accept-btn:hover {
             background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .accept-btn:hover::before {
+            left: 100%;
         }
 
         .decline-btn {
             background-color: transparent;
             color: var(--white);
-            border: 1px solid var(--light-gray);
+            border: 2px solid var(--light-gray);
         }
 
         .decline-btn:hover {
             background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .decline-btn:hover::before {
+            left: 100%;
         }
 
         /* 서브 페이지 스타일 */
@@ -370,37 +605,66 @@
             background-color: var(--light-gray);
             color: var(--white);
             border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 10px 20px;
+            border-radius: 8px;
             cursor: pointer;
             margin-bottom: 1.5rem;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
         }
 
         .back-btn:hover {
             background-color: var(--light-green);
             color: var(--dark-gray);
+            transform: translateX(-5px);
+        }
+
+        .back-btn:hover::before {
+            left: 100%;
         }
 
         .project-header {
             display: flex;
             gap: 2rem;
             margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--medium-gray) 0%, rgba(52, 73, 94, 0.9) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .project-image {
             flex: 0 0 300px;
             height: 200px;
-            background-color: var(--light-green);
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--dark-green) 100%);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--dark-gray);
             font-weight: 700;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         .project-info {
@@ -410,6 +674,7 @@
         .project-info h2 {
             color: var(--light-green);
             margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(26, 188, 156, 0.3);
         }
 
         .project-info p {
@@ -417,41 +682,70 @@
         }
 
         .project-download {
-            background-color: var(--light-green);
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--dark-green) 100%);
             color: var(--dark-gray);
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 12px 25px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-download::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
         }
 
         .project-download:hover {
-            background-color: var(--dark-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), var(--glow);
+        }
+
+        .project-download:hover::before {
+            left: 100%;
         }
 
         .dev-log {
-            background-color: var(--medium-gray);
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--medium-gray) 0%, rgba(52, 73, 94, 0.9) 100%);
+            border-radius: 15px;
             padding: 2rem;
             margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .dev-log h3 {
             color: var(--light-green);
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--light-gray);
+            border-bottom: 2px solid rgba(26, 188, 156, 0.3);
+            text-shadow: 0 0 10px rgba(26, 188, 156, 0.3);
         }
 
         .log-entry {
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .log-entry:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(10px);
         }
 
         .log-entry:last-child {
@@ -464,6 +758,18 @@
             color: var(--light-green);
             font-weight: 600;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .log-date::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--light-green);
+            border-radius: 50%;
+            display: inline-block;
         }
 
         .log-content {
@@ -474,6 +780,21 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* 반응형 디자인 */
@@ -519,6 +840,10 @@
     </style>
 </head>
 <body>
+    <!-- 커스텀 커서 -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
     <!-- 인트로 페이지 -->
     <div id="intro-page">
         <div class="intro-content">
@@ -747,6 +1072,35 @@
         const backButtons = document.querySelectorAll('.back-btn');
         const subpages = document.querySelectorAll('.subpage');
         
+        // 커스텀 커서
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        // 커스텀 커서 이동
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+        
+        // 호버 효과
+        const hoverElements = document.querySelectorAll('a, button, .program-card, .log-entry');
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursorFollower.style.transform = 'scale(1.3)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursorFollower.style.transform = 'scale(1)';
+            });
+        });
+        
         // 인트로 페이지에서 메인 페이지로 전환
         enterBtn.addEventListener('click', function() {
             introPage.classList.add('hidden');
@@ -767,6 +1121,12 @@
             currentLanguage = currentLanguage === 'ko' ? 'en' : 'ko';
             updateLanguage();
             languageSwitch.textContent = currentLanguage === 'ko' ? 'EN' : 'KO';
+            
+            // 언어 전환 효과
+            this.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 300);
         });
         
         // 언어 업데이트 함수
@@ -810,6 +1170,13 @@
         downloadButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
+                
+                // 버튼 클릭 효과
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+                
                 alert(currentLanguage === 'ko' ? '다운로드가 시작됩니다.' : 'Download will start.');
                 // 실제 다운로드 로직은 여기에 구현
             });
