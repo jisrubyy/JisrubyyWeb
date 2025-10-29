@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jisrubyy Web - 개발자 페이지</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,10 +16,10 @@
         <button class="language-switch" id="language-switch-intro" style="position: absolute; top: 2rem; right: 2rem; z-index: 1001;">EN</button>
         <div class="intro-content">
             <div class="intro-logo">
-                <img class="brand-logo brand-logo--intro" src="Resources/JISRUBYY Logo1.png" alt="Jisrubby Logo" loading="eager">
+                <img class="brand-logo brand-logo--intro" src="Resources/JISRUBYY Logo1.png" alt="Jisrubyy Logo" loading="eager">
                 <span class="sr-only">Jisrubyy</span>
             </div>
-            <p class="intro-subtitle" data-ko="Jisrubyy 웹페이지에 오신 것을 환영합니다" data-en="Welcome to Jisrubby Website">Jisrubby 웹페이지에 오신 것을 환영합니다</p>
+            <p class="intro-subtitle" data-ko="Jisrubyy 웹페이지에 오신 것을 환영합니다" data-en="Welcome to Jisrubyy Website">Jisrubyy 웹페이지에 오신 것을 환영합니다</p>
             <button class="enter-btn" id="enter-btn" data-ko="입장하기" data-en="Enter">입장하기</button>
         </div>
     </div>
@@ -30,8 +29,8 @@
         <!-- 헤더 -->
         <header>
             <div class="logo" id="logo-home" style="cursor: pointer;">
-                <img class="brand-logo brand-logo--header" src="Resources/JISRUBYY Logo1.png" alt="Jisrubby Logo" loading="lazy">
-                <span class="sr-only">Jisrubby Dev</span>
+                <img class="brand-logo brand-logo--header" src="Resources/JISRUBYY Logo1.png" alt="Jisrubyy Logo" loading="lazy">
+                <span class="sr-only">Jisrubyy Dev</span>
             </div>
             <nav>
                 <ul>
@@ -49,7 +48,7 @@
         <!-- 메인 콘텐츠 -->
         <main>
             <section class="welcome-section">
-                <h1 class="welcome-title" data-ko="Jisrubby의 프로젝트" data-en="Jisrubby's Projects">Jisrubby의 프로젝트</h1>
+                <h1 class="welcome-title" data-ko="Jisrubyy의 프로젝트" data-en="Jisrubyy's Projects">Jisrubyy의 프로젝트</h1>
                 <p class="welcome-text" data-ko="다양한 프로젝트와 개발 과정을 기록하고 공유합니다." data-en="Recording and sharing various projects and development processes.">다양한 프로젝트와 개발 과정을 기록하고 공유합니다.</p>
             </section>
 
@@ -59,14 +58,14 @@
                     <!-- 프로젝트 카드 1 -->
                     <div class="program-card" data-project="project1">
                         <div class="program-image">
-                            <i class="fas fa-desktop" style="font-size: 3rem;"></i>
+                            <span class="icon" role="img" aria-label="desktop" style="font-size: 3rem;">🖥️</span>
                         </div>
                         <div class="program-content">
                             <h3 data-ko="JISMemo" data-en="JISMemo">JISMemo</h3>
                             <p data-ko="Windows용 간편한 메모지 프로그램입니다." data-en="Simple memo program for Windows.">Windows용 간편한 메모지 프로그램입니다.</p>
                             <div class="program-links">
                                 <a href="#" class="program-link view-details" data-ko="자세히 보기" data-en="View Details">자세히 보기</a>
-                                <a href="https://drive.google.com/file/d/1xfvaCBCj9GyRNuhg6kh6_zl-GpoSlIkc/view?usp=sharing" target="_blank" class="program-link download-btn" data-ko="다운로드" data-en="Download"><i class="fas fa-download"></i> 다운로드</a>
+                                <a href="https://drive.google.com/file/d/1xfvaCBCj9GyRNuhg6kh6_zl-GpoSlIkc/view?usp=sharing" target="_blank" class="program-link download-btn" data-ko="다운로드" data-en="Download"><span class="icon" role="img" aria-label="download">⬇️</span> 다운로드</a>
                             </div>
                         </div>
                     </div>
@@ -74,14 +73,14 @@
                     <!-- 프로젝트 카드 2 -->
                     <div class="program-card" data-project="project2" style="opacity: 0.5; pointer-events: none;">
                         <div class="program-image" style="filter: grayscale(100%);">
-                            <i class="fas fa-globe" style="font-size: 3rem;"></i>
+                            <span class="icon" role="img" aria-label="globe" style="font-size: 3rem;">🌐</span>
                         </div>
                         <div class="program-content">
                             <h3 data-ko="웹 기반 도구" data-en="Web-based Tool">웹 기반 도구</h3>
                             <p data-ko="브라우저에서 사용할 수 있는 웹 기반 도구입니다." data-en="Web-based tool available in browsers.">브라우저에서 사용할 수 있는 웹 기반 도구입니다.</p>
                             <div class="program-links">
                                 <a href="#" class="program-link view-details" data-ko="자세히 보기" data-en="View Details">자세히 보기</a>
-                                <a href="#" class="program-link download-btn" data-ko="다운로드" data-en="Download"><i class="fas fa-download"></i> 다운로드</a>
+                                <a href="#" class="program-link download-btn" data-ko="다운로드" data-en="Download"><span class="icon" role="img" aria-label="download">⬇️</span> 다운로드</a>
                             </div>
                         </div>
                     </div>
@@ -89,14 +88,14 @@
                     <!-- 프로젝트 카드 3 -->
                     <div class="program-card" data-project="project3" style="opacity: 0.5; pointer-events: none;">
                         <div class="program-image" style="filter: grayscale(100%);">
-                            <i class="fas fa-mobile-alt" style="font-size: 3rem;"></i>
+                            <span class="icon" role="img" aria-label="mobile" style="font-size: 3rem;">📱</span>
                         </div>
                         <div class="program-content">
                             <h3 data-ko="모바일 앱" data-en="Mobile App">모바일 앱</h3>
                             <p data-ko="Android 및 iOS용 모바일 애플리케이션입니다." data-en="Mobile application for Android and iOS.">Android 및 iOS용 모바일 애플리케이션입니다.</p>
                             <div class="program-links">
                                 <a href="#" class="program-link view-details" data-ko="자세히 보기" data-en="View Details">자세히 보기</a>
-                                <a href="#" class="program-link download-btn" data-ko="다운로드" data-en="Download"><i class="fas fa-download"></i> 다운로드</a>
+                                <a href="#" class="program-link download-btn" data-ko="다운로드" data-en="Download"><span class="icon" role="img" aria-label="download">⬇️</span> 다운로드</a>
                             </div>
                         </div>
                     </div>
@@ -119,10 +118,10 @@
 
                 <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
                     <div style="flex: 0 0 150px; height: 150px; background: linear-gradient(135deg, var(--light-green) 0%, var(--dark-green) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--dark-gray); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);">
-                        <i class="fas fa-user"></i>
+                        <span class="icon" role="img" aria-label="user">👤</span>
                     </div>
                     <div style="flex: 1; min-width: 300px;">
-                        <h4 style="color: var(--light-green); font-size: 1.8rem; margin-bottom: 0.5rem;">Jisrubby</h4>
+                        <h4 style="color: var(--light-green); font-size: 1.8rem; margin-bottom: 0.5rem;">Jisrubyy</h4>
                         <p style="color: var(--white); font-size: 1.1rem; margin-bottom: 1rem;" data-ko="소프트웨어 개발자" data-en="Software Developer">소프트웨어 개발자</p>
                         <p style="line-height: 1.8;" data-ko="다양한 프로그램 개발과 웹 기술에 관심이 많습니다. 사용자 경험을 최우선으로 생각하며, 실용적이고 효율적인 솔루션을 만들기 위해 노력하고 있습니다." data-en="Interested in various program development and web technologies. I prioritize user experience and strive to create practical and efficient solutions.">다양한 프로그램 개발과 웹 기술에 관심이 많습니다. 사용자 경험을 최우선으로 생각하며, 실용적이고 효율적인 솔루션을 만들기 위해 노력하고 있습니다.</p>
                     </div>
@@ -132,11 +131,11 @@
                     <h4 style="color: var(--light-green); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(26, 188, 156, 0.3);" data-ko="연락처" data-en="Contact">연락처</h4>
                     <div style="display: flex; flex-direction: column; gap: 0.8rem;">
                         <a href="mailto:jisrubby@gmail.com" style="color: var(--white); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-envelope" style="color: var(--light-green);"></i>
+                            <span class="icon" role="img" aria-label="email" style="color: var(--light-green);">✉️</span>
                             jisrubby@gmail.com
                         </a>
                         <a href="mailto:zegtern@kakao.com" style="color: var(--white); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-envelope" style="color: var(--light-green);"></i>
+                            <span class="icon" role="img" aria-label="email" style="color: var(--light-green);">✉️</span>
                             zegtern@kakao.com
                         </a>
                     </div>
@@ -162,12 +161,12 @@
 
                     <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center; margin-top: 2rem;">
                         <a href="mailto:jisrubby@gmail.com" style="display: flex; align-items: center; gap: 1rem; background: linear-gradient(135deg, var(--medium-gray) 0%, rgba(52, 73, 94, 0.9) 100%); padding: 1.5rem 2.5rem; border-radius: 12px; text-decoration: none; color: var(--white); font-size: 1.2rem; transition: var(--transition); border: 1px solid rgba(26, 188, 156, 0.3); min-width: 350px; justify-content: center;">
-                            <i class="fas fa-envelope" style="color: var(--light-green); font-size: 1.5rem;"></i>
+                            <span class="icon" role="img" aria-label="email" style="color: var(--light-green); font-size: 1.5rem;">✉️</span>
                             <span>jisrubby@gmail.com</span>
                         </a>
 
                         <a href="mailto:zegtern@kakao.com" style="display: flex; align-items: center; gap: 1rem; background: linear-gradient(135deg, var(--medium-gray) 0%, rgba(52, 73, 94, 0.9) 100%); padding: 1.5rem 2.5rem; border-radius: 12px; text-decoration: none; color: var(--white); font-size: 1.2rem; transition: var(--transition); border: 1px solid rgba(26, 188, 156, 0.3); min-width: 350px; justify-content: center;">
-                            <i class="fas fa-envelope" style="color: var(--light-green); font-size: 1.5rem;"></i>
+                            <span class="icon" role="img" aria-label="email" style="color: var(--light-green); font-size: 1.5rem;">✉️</span>
                             <span>zegtern@kakao.com</span>
                         </a>
                     </div>
@@ -325,13 +324,13 @@
         <!-- 푸터 -->
         <footer>
             <div class="developer-info">
-                <div class="developer-name">Developer: Jisrubby</div>
+                <div class="developer-name">Developer: Jisrubyy</div>
                 <div class="contact-info">
                     <a href="mailto:jisrubby@gmail.com">jisrubby@gmail.com</a>
                     <a href="mailto:zegtern@kakao.com">zegtern@kakao.com</a>
                 </div>
             </div>
-            <div class="copyright" data-ko="© 2025 ~ Jisrubby. 모든 권리 보유." data-en="© 2025 ~ Jisrubby. All rights reserved.">© 2025 ~ Jisrubby. 모든 권리 보유.</div>
+            <div class="copyright" data-ko="© 2025 ~ Jisrubyy. 모든 권리 보유." data-en="© 2025 ~ Jisrubyy. All rights reserved.">© 2025 ~ Jisrubyy. 모든 권리 보유.</div>
         </footer>
 
         <!-- 쿠키 동의 배너 -->
@@ -347,18 +346,18 @@
     <!-- 프로젝트 1 서브 페이지 -->
     <div id="project1-page" class="subpage">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <button class="back-btn" id="back-btn-1"><i class="fas fa-arrow-left"></i> <span data-ko="메인으로 돌아가기" data-en="Back to Main">메인으로 돌아가기</span></button>
+            <button class="back-btn" id="back-btn-1"><span class="icon" role="img" aria-label="back">←</span> <span data-ko="메인으로 돌아가기" data-en="Back to Main">메인으로 돌아가기</span></button>
             <button class="language-switch" id="language-switch-sub1">EN</button>
         </div>
         
         <div class="project-header">
             <div class="project-image">
-                <i class="fas fa-desktop" style="font-size: 4rem;"></i>
+                <span class="icon" role="img" aria-label="desktop" style="font-size: 4rem;">🖥️</span>
             </div>
             <div class="project-info">
                 <h2 data-ko="JISMemo" data-en="JISMemo">JISMemo</h2>
                 <p data-ko="Windows 환경에서 사용할 수 있는 간편한 메모지 프로그램입니다. 빠르고 직관적인 인터페이스로 메모를 쉽게 작성하고 관리할 수 있습니다." data-en="A simple memo program for Windows environment. Easy to write and manage memos with a fast and intuitive interface.">Windows 환경에서 사용할 수 있는 간편한 메모지 프로그램입니다. 빠르고 직관적인 인터페이스로 메모를 쉽게 작성하고 관리할 수 있습니다.</p>
-                <a href="https://drive.google.com/file/d/1xfvaCBCj9GyRNuhg6kh6_zl-GpoSlIkc/view?usp=sharing" target="_blank" class="project-download" data-ko="다운로드" data-en="Download" style="text-decoration: none;"><i class="fas fa-download"></i> 다운로드 (v1.2)</a>
+                <a href="https://drive.google.com/file/d/1xfvaCBCj9GyRNuhg6kh6_zl-GpoSlIkc/view?usp=sharing" target="_blank" class="project-download" data-ko="다운로드" data-en="Download" style="text-decoration: none;"><span class="icon" role="img" aria-label="download">⬇️</span> 다운로드 (v1.2)</a>
             </div>
         </div>
         
@@ -375,18 +374,18 @@
     <!-- 프로젝트 2 서브 페이지 -->
     <div id="project2-page" class="subpage">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <button class="back-btn" id="back-btn-2"><i class="fas fa-arrow-left"></i> <span data-ko="메인으로 돌아가기" data-en="Back to Main">메인으로 돌아가기</span></button>
+            <button class="back-btn" id="back-btn-2"><span class="icon" role="img" aria-label="back">←</span> <span data-ko="메인으로 돌아가기" data-en="Back to Main">메인으로 돌아가기</span></button>
             <button class="language-switch" id="language-switch-sub2">EN</button>
         </div>
         
         <div class="project-header">
             <div class="project-image">
-                <i class="fas fa-globe" style="font-size: 4rem;"></i>
+                <span class="icon" role="img" aria-label="globe" style="font-size: 4rem;">🌐</span>
             </div>
             <div class="project-info">
                 <h2 data-ko="웹 기반 도구" data-en="Web-based Tool">웹 기반 도구</h2>
                 <p data-ko="모든 브라우저에서 접근 가능한 웹 기반 도구입니다. 반응형 디자인으로 모바일에서도 원활하게 사용할 수 있습니다." data-en="A web-based tool accessible from all browsers. Responsive design allows smooth use on mobile devices as well.">모든 브라우저에서 접근 가능한 웹 기반 도구입니다. 반응형 디자인으로 모바일에서도 원활하게 사용할 수 있습니다.</p>
-                <button class="project-download" data-ko="다운로드" data-en="Download"><i class="fas fa-download"></i> 다운로드 (v2.1.0, 12.7 MB)</button>
+                <button class="project-download" data-ko="다운로드" data-en="Download"><span class="icon" role="img" aria-label="download">⬇️</span> 다운로드 (v2.1.0, 12.7 MB)</button>
             </div>
         </div>
         
@@ -413,18 +412,18 @@
     <!-- 프로젝트 3 서브 페이지 -->
     <div id="project3-page" class="subpage">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <button class="back-btn" id="back-btn-3"><i class="fas fa-arrow-left"></i> <span data-ko="메인으로 돌아가기" data-en="Back to Main">메인으로 돌아가기</span></button>
+            <button class="back-btn" id="back-btn-3"><span class="icon" role="img" aria-label="back">←</span> <span data-ko="메인으로 돌아가기" data-en="Back to Main">메인으로 돌아가기</span></button>
             <button class="language-switch" id="language-switch-sub3">EN</button>
         </div>
         
         <div class="project-header">
             <div class="project-image">
-                <i class="fas fa-mobile-alt" style="font-size: 4rem;"></i>
+                <span class="icon" role="img" aria-label="mobile" style="font-size: 4rem;">📱</span>
             </div>
             <div class="project-info">
                 <h2 data-ko="모바일 앱" data-en="Mobile App">모바일 앱</h2>
                 <p data-ko="Android와 iOS에서 모두 사용 가능한 하이브리드 모바일 애플리케이션입니다. 오프라인에서도 주요 기능을 사용할 수 있습니다." data-en="A hybrid mobile application available on both Android and iOS. Key features are available even offline.">Android와 iOS에서 모두 사용 가능한 하이브리드 모바일 애플리케이션입니다. 오프라인에서도 주요 기능을 사용할 수 있습니다.</p>
-                <button class="project-download" data-ko="다운로드" data-en="Download"><i class="fas fa-download"></i> 다운로드 (v1.5.2, 28.4 MB)</button>
+                <button class="project-download" data-ko="다운로드" data-en="Download"><span class="icon" role="img" aria-label="download">⬇️</span> 다운로드 (v1.5.2, 28.4 MB)</button>
             </div>
         </div>
         
