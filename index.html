@@ -736,7 +736,6 @@
 
         .log-entry {
             margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
             padding: 1rem;
@@ -837,6 +836,13 @@
                 width: 100%;
             }
         }
+
+        .nav-link.active {
+            color: var(--light-green);
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
     </style>
 </head>
 <body>
@@ -861,8 +867,8 @@
             <nav>
                 <ul>
                     <li><a href="#" class="nav-link" data-ko="홈" data-en="Home">홈</a></li>
-                    <li><a href="#" class="nav-link" data-ko="프로젝트" data-en="Projects">프로젝트</a></li>
-                    <li><a href="#" class="nav-link" data-ko="개발일지" data-en="Dev Log">개발일지</a></li>
+                    <li><a href="#projects" class="nav-link" data-ko="프로젝트" data-en="Projects">프로젝트</a></li>
+                    <li><a href="#dev-log" class="nav-link" data-ko="개발일지" data-en="Dev Log">개발일지</a></li>
                     <li><a href="#" class="nav-link" data-ko="연락처" data-en="Contact">연락처</a></li>
                 </ul>
             </nav>
@@ -876,7 +882,7 @@
                 <p class="welcome-text" data-ko="다양한 프로젝트와 개발 과정을 기록하고 공유합니다." data-en="Recording and sharing various projects and development processes.">다양한 프로젝트와 개발 과정을 기록하고 공유합니다.</p>
             </section>
 
-            <section class="programs-section">
+            <section id="projects" class="programs-section">
                 <h2 class="section-title" data-ko="프로젝트 목록" data-en="Project List">프로젝트 목록</h2>
                 <div class="programs-grid">
                     <!-- 프로젝트 카드 1 -->
@@ -885,11 +891,11 @@
                             <i class="fas fa-desktop" style="font-size: 3rem;"></i>
                         </div>
                         <div class="program-content">
-                            <h3 data-ko="데스크톱 애플리케이션" data-en="Desktop Application">데스크톱 애플리케이션</h3>
+                            <h3 data-ko="JISMemo" data-en="JISMemo">JISMemo</h3>
                             <p data-ko="Windows용 데스크톱 애플리케이션입니다." data-en="Desktop application for Windows.">Windows용 데스크톱 애플리케이션입니다.</p>
                             <div class="program-links">
                                 <a href="#" class="program-link view-details" data-ko="자세히 보기" data-en="View Details">자세히 보기</a>
-                                <a href="#" class="program-link download-btn" data-ko="다운로드" data-en="Download"><i class="fas fa-download"></i> 다운로드</a>
+                                <a href="https://drive.google.com/file/d/1ke0joOl6t1Oi_PTzdTm7_fzYr7BS2ACz/view?usp=drive_link" target="_blank" class="program-link download-btn" data-ko="다운로드" data-en="Download"><i class="fas fa-download"></i> 다운로드</a>
                             </div>
                         </div>
                     </div>
@@ -925,6 +931,16 @@
                     </div>
                 </div>
             </section>
+
+            <!-- 메인용 통합 개발일지 섹션 (네비게이션에서 #dev-log로 참조) -->
+            <section id="dev-log" class="dev-log">
+                <h3 data-ko="개발 일지" data-en="Development Log">개발 일지</h3>
+
+                <div class="log-entry">
+                    <div class="log-date">2025.10.29</div>
+                    <div class="log-content" data-ko="최초 릴리즈" data-en="Initial release">최초 릴리즈</div>
+                </div>
+            </section>
         </main>
 
         <!-- 푸터 -->
@@ -958,28 +974,18 @@
                 <i class="fas fa-desktop" style="font-size: 4rem;"></i>
             </div>
             <div class="project-info">
-                <h2 data-ko="데스크톱 애플리케이션" data-en="Desktop Application">데스크톱 애플리케이션</h2>
+                <h2 data-ko="JISMemo" data-en="JISMemo">JISMemo</h2>
                 <p data-ko="Windows 환경에서 사용할 수 있는 고성능 데스크톱 애플리케이션입니다. 다양한 기능을 제공하며 사용자 친화적인 인터페이스를 가지고 있습니다." data-en="A high-performance desktop application for Windows environment. It provides various features and has a user-friendly interface.">Windows 환경에서 사용할 수 있는 고성능 데스크톱 애플리케이션입니다. 다양한 기능을 제공하며 사용자 친화적인 인터페이스를 가지고 있습니다.</p>
-                <button class="project-download" data-ko="다운로드" data-en="Download"><i class="fas fa-download"></i> 다운로드 (v1.2.3, 45.2 MB)</button>
+                <a href="https://drive.google.com/file/d/1ke0joOl6t1Oi_PTzdTm7_fzYr7BS2ACz/view?usp=drive_link" target="_blank" class="project-download" data-ko="다운로드" data-en="Download" style="text-decoration: none;"><i class="fas fa-download"></i> 다운로드 (v1.2)</a>
             </div>
         </div>
         
         <div class="dev-log">
             <h3 data-ko="개발 일지" data-en="Development Log">개발 일지</h3>
-            
+
             <div class="log-entry">
-                <div class="log-date">2023.10.15</div>
-                <div class="log-content" data-ko="사용자 인터페이스 개선 작업 완료. 새로운 디자인 시스템 적용으로 사용성 향상." data-en="Completed user interface improvement. Applied new design system to enhance usability.">사용자 인터페이스 개선 작업 완료. 새로운 디자인 시스템 적용으로 사용성 향상.</div>
-            </div>
-            
-            <div class="log-entry">
-                <div class="log-date">2023.10.08</div>
-                <div class="log-content" data-ko="성능 최적화 작업 진행. 메모리 사용량 30% 감소 및 실행 속도 개선." data-en="Performance optimization in progress. Reduced memory usage by 30% and improved execution speed.">성능 최적화 작업 진행. 메모리 사용량 30% 감소 및 실행 속도 개선.</div>
-            </div>
-            
-            <div class="log-entry">
-                <div class="log-date">2023.09.25</div>
-                <div class="log-content" data-ko="버그 수정 및 안정성 개선. 사용자 피드백 반영하여 주요 이슈 해결." data-en="Bug fixes and stability improvements. Resolved major issues based on user feedback.">버그 수정 및 안정성 개선. 사용자 피드백 반영하여 주요 이슈 해결.</div>
+                <div class="log-date">2025.10.29</div>
+                <div class="log-content" data-ko="최초 릴리즈" data-en="Initial release">최초 릴리즈</div>
             </div>
         </div>
     </div>
@@ -1165,18 +1171,18 @@
             });
         });
         
-        // 다운로드 버튼 클릭 이벤트
-        const downloadButtons = document.querySelectorAll('.project-download, .download-btn');
+        // 다운로드 버튼 클릭 이벤트 (링크가 없는 버튼만 처리)
+        const downloadButtons = document.querySelectorAll('.project-download:not([href]), .download-btn:not([href])');
         downloadButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+
                 // 버튼 클릭 효과
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     this.style.transform = '';
                 }, 200);
-                
+
                 alert(currentLanguage === 'ko' ? '다운로드가 시작됩니다.' : 'Download will start.');
                 // 실제 다운로드 로직은 여기에 구현
             });
@@ -1224,6 +1230,99 @@
                 cookieBanner.style.display = 'none';
             }
         });
+        
+        // 부드러운 앵커 스크롤 + 헤더 오프셋 보정 및 활성 메뉴 하이라이트
+        (function() {
+            const header = document.querySelector('header');
+            function getHeaderHeight() {
+                return header ? header.offsetHeight : 0;
+            }
+            
+            // 섹션 목록(네비게이션 앵커를 기준으로) 생성
+            const navLinks = Array.from(document.querySelectorAll('a.nav-link'));
+            let sections = navLinks
+                .map(a => {
+                    const href = a.getAttribute('href');
+                    if (href && href.startsWith('#') && href !== '#') {
+                        const el = document.querySelector(href);
+                        if (el) return { id: href, el, link: a };
+                    }
+                    return null;
+                })
+                .filter(Boolean);
+            
+            // 섹션 오프셋을 갱신 (리사이즈 시 호출)
+            function refreshSectionOffsets() {
+                sections = sections.map(s => ({ ...s, offsetTop: s.el.getBoundingClientRect().top + window.pageYOffset }));
+                // 정렬
+                sections.sort((a, b) => a.offsetTop - b.offsetTop);
+            }
+            
+            // 스무스 스크롤(헤더 오프셋 적용)
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', function(e) {
+                    const target = this.getAttribute('href');
+                    if (!target || target === '#') return; // 기존 동작 유지
+                    const el = document.querySelector(target);
+                    if (el) {
+                        e.preventDefault();
+                        // 서브페이지가 열려있다면 닫고 메인 보여주기
+                        document.querySelectorAll('.subpage.active').forEach(sp => sp.classList.remove('active'));
+                        if (document.getElementById('main-page').style.display === 'none') {
+                            document.getElementById('main-page').style.display = 'block';
+                        }
+                        
+                        const headerHeight = getHeaderHeight();
+                        const extraOffset = 12; // 헤더와 섹션 사이 여유
+                        const targetY = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraOffset;
+                        
+                        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                        
+                        // 클릭 시 해당 네비게이션 링크 활성화
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        const navLink = this.classList.contains('nav-link') ? this : navLinks.find(l => l.getAttribute('href') === target);
+                        if (navLink) navLink.classList.add('active');
+                    }
+                });
+            });
+            
+            // 스크롤 위치에 따른 활성 메뉴 업데이트
+            function updateActiveNavOnScroll() {
+                const scrollPos = window.pageYOffset + getHeaderHeight() + 20; // 20px 여유
+                let current = null;
+                for (let i = 0; i < sections.length; i++) {
+                    const s = sections[i];
+                    const next = sections[i + 1];
+                    if (scrollPos >= s.offsetTop && (!next || scrollPos < next.offsetTop)) {
+                        current = s;
+                        break;
+                    }
+                }
+                
+                navLinks.forEach(link => link.classList.remove('active'));
+                if (current && current.link) current.link.classList.add('active');
+            }
+            
+            // 초기화
+            refreshSectionOffsets();
+            updateActiveNavOnScroll();
+            
+            // 이벤트 바인딩
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    refreshSectionOffsets();
+                    updateActiveNavOnScroll();
+                }, 150);
+            });
+            
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateActiveNavOnScroll, 50);
+            });
+        })();
     </script>
 </body>
 </html>
