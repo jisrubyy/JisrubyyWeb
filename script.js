@@ -107,6 +107,13 @@ function updateLanguage() {
     elements.forEach(element => {
         element.textContent = element.getAttribute(`data-${currentLanguage}`);
     });
+
+    // 정책 등 긴 문서를 언어별 블록으로 전환
+    const policyBlocks = document.querySelectorAll('.policy-container[data-lang]');
+    policyBlocks.forEach(block => {
+        const lang = block.getAttribute('data-lang');
+        block.style.display = (lang === currentLanguage) ? 'block' : 'none';
+    });
 }
 
 // 서브 페이지로 전환
