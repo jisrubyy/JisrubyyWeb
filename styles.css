@@ -23,6 +23,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* 커스텀 커서 */
 .cursor {
     position: fixed;
@@ -861,4 +862,59 @@ footer::before {
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 6px;
+}
+
+/* Brand logo styles */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.brand-logo {
+    display: block;
+    height: auto;
+    width: auto;
+    max-width: 90vw;
+    image-rendering: auto;
+}
+
+/* Intro (splash) logo: big, centered */
+.brand-logo--intro {
+    max-width: 340px;
+    filter: drop-shadow(0 6px 20px rgba(0,0,0,0.45));
+}
+
+/* Header (main page) logo: compact for navbar height */
+.brand-logo--header {
+    height: 42px;
+    width: auto;
+}
+
+/* Remove underline animation set for text logo when using image */
+.intro-logo::after {
+    display: none;
+}
+
+/* Align header logo nicely within header */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Optional hover feedback for header logo */
+header .logo:hover .brand-logo--header {
+    filter: drop-shadow(0 0 8px rgba(26,188,156,0.4));
+}
+
+@media (max-width: 768px) {
+    .brand-logo--intro { max-width: 240px; }
+    .brand-logo--header { height: 36px; }
 }
