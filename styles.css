@@ -21,6 +21,11 @@ body {
     color: var(--white);
     line-height: 1.6;
     overflow-x: hidden;
+    cursor: none;
+}
+
+a, button {
+    cursor: none;
 }
 
 
